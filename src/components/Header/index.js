@@ -1,6 +1,7 @@
 import Button, { BUTTON_COLOR } from '../Button';
 import Modal from '../Modal';
-import ModalAuth from '../Modal-Auth';
+// import ModalAuth from '../Modal-Auth';
+import AuthModal from '../AuthModal';
 import { showModal } from '../common';
 
 const SIGNIN_MODAL_ID = 'signin-modal';
@@ -17,15 +18,13 @@ const Header = ({ className = '' } = {}) => {
 
   return `
     <header class=${className}>
-      ${ModalAuth({
+      ${AuthModal({
         id: SIGNIN_MODAL_ID,
-        title: '로그인',
-        newAccount: false
+        isSignIn: true,
       })}
-      ${ModalAuth({
+      ${AuthModal({
         id: SIGNUP_MODAL_ID,
-        title: '회원가입',
-        newAccount: true
+        isSignIn: false,
       })}
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
