@@ -2,12 +2,29 @@ import Button, { BUTTON_COLOR } from '../Button';
 import { showModal } from '../common';
 import AuthModal from './AuthModal';
 
+const SIGNIN_MODAL_ID = 'signin-modal';
+const SIGNUP_MODAL_ID = 'signup-modal';
+
 const Header = ({ className = '' } = {}) => {
-  let newAccount = null;
+
+  const onClickLogin = ({ target }) => {
+    showModal({ target, modalSelector: `#${SIGNIN_MODAL_ID}` });
+  };
+
+  const onClickSignup = ({ target }) => {
+    showModal({ target, modalSelector: `#${SIGNUP_MODAL_ID}` });
+  };
 
   return `
     <header class=${className}>
-    ${AuthModal(newAccount)}
+      ${AuthModal({
+        id: SIGNIN_MODAL_ID,
+        newAccount: false,
+      })}
+      ${AuthModal({
+        id: SIGNUP_MODAL_ID,
+        newAccount: true,
+      })}
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/"></a>
@@ -16,21 +33,15 @@ const Header = ({ className = '' } = {}) => {
               className: 'header__signin',
               color: BUTTON_COLOR.YELLOW,
               content: '로그인',
-              onClick: ({ target }) => {
-                showModal({ target: target.closest('button'), modalSelector: '.signin-modal' });
-                newAccount = false;
-              },
-             })}
+              onClick: onClickLogin,
+            })}
              ${Button({
               className: 'header__signup',
               color: BUTTON_COLOR.BLUE,
               content: '회원가입',
               borderType: 'outline',
-              onClick: ({ target }) => {
-                showModal({ target: target.closest('button'), modalSelector: '.signup-modal' });
-                newAccount = true;
-              },
-             })}
+              onClick: onClickSignup,
+            })}
           </div>
         </div>
       </nav>
