@@ -25,3 +25,5 @@ export const getUniqueId = () => {
   return Date.now() + Math.floor(Math.random() * 1000000);
 }
 
+
+export const getHypotenuse = ({ x, y }) => x / Math.sin(Math.atan(x / y));

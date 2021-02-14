@@ -1,0 +1,9 @@
+@import '../../custom.scss';
+
+.place {
+  padding: 12px 20px;
+}
+
+.place.place--is-selected {
+  background-color: $primary;
+}

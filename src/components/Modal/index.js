@@ -13,13 +13,7 @@ const Modal = ({
 
 } = {}) => {
   const onOkModal = (event) => {
-    const { target } = event;
-    new Promise(resolve => {
-      onOk(event);
-      resolve();
-    }).then(() => {
-      target.closest('.modal').querySelector('.btn-close').click();
-    });
+    onOk(event);
   }
 
   const closeModal = (event) => {

@@ -1,3 +1,5 @@
+@import '../../custom.scss';
+
 .group-list {
   .group-list__title span {
     margin-bottom: 0;
@@ -8,19 +10,44 @@
   .flex-row {
     align-items: center;
   }
+  .group-list__card > .card-body {
+    padding: 0;
+  }
+  .group-item.list-group-item {
+    padding: 0;
+  }
 }
 
 .group {
+  .group-title {
+    padding: 12px 20px;
+  }
   .group-title:hover {
     cursor: pointer;
   }
-  .place-list-container {
+  .place-list {
     display: none;
   }
-  &.active .place-list-container {
+  .place-item.list-group-item {
+    border-radius: 0;
+  }
+  .place-item:hover {
+    cursor: pointer;
+    background-color: $hover;
+  }
+  .place-item.list-group-item {
+    padding: 0;
+  }
+}
+
+.group.group--is-selected {
+  .group-title {
+    background-color: $primary;
+  }
+  .place-list {
     display: flex;
   }
-  &.active .place-list-container.place-list-container--hide {
+  .place-list--hide {
     display: none;
   }
 }

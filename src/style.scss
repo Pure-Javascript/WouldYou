@@ -1,3 +1,5 @@
+@import './custom.scss';
+
 body {
   margin: 0;
 }
@@ -50,4 +52,8 @@ header {
 
 .form-control {
   flex: 1 1 300px;
+}
+
+.hide {
+  display: none;
 }

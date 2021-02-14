@@ -12,7 +12,6 @@ const Map = ({
   width = '100vw',
   height = '80vh',
   options = DEFAULT_MAP_OPTIONS,
-  map,
 } = {
     id: 'map',
     width: '100vw',
@@ -47,5 +46,13 @@ Map.searchAddress = ({ address, onSearch }) => {
   );
 };
 
+
+export const moveMap = ({ map, x, y }) => {
+  if (!map || !x || !y) {
+    return;
+  }
+  const position = new naver.maps.LatLng(y, x);
+  map.panTo(position);
+}
 
 export default Map;

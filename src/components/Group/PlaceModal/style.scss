@@ -1,0 +1,13 @@
+.place-modal {
+  .place-modal__address-form {
+    margin: 1em 0;
+  }
+  .place-modal__address-form > .row {
+    margin-bottom: 1em;
+  }
+  .address-form__submit-column {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}

@@ -1,4 +1,4 @@
-import { setEventListener } from '../common';
+import { getUniqueId, setEventListener } from '../common';
 
 export const BUTTON_COLOR = {
   BLUE: 'primary',
@@ -26,14 +26,6 @@ const getButtonTheme = (...args) => {
   return buttonThemes.join('-');
 };
 
-const randomID = () => {
-  let randomID = Math.floor(Math.random() * 1000000) + 100000;
-  if (randomID > 1000000) {
-    randomID = randomID - 100000;
-  }
-
-  return randomID;
-}
 const Button = ({
   id,
   className,
@@ -43,7 +35,7 @@ const Button = ({
   borderType = BUTTON_BORDER_TYPE.SOLID,
   onClick,
 } = {}) => {
-  const dataKey = randomID();
+  const dataKey = getUniqueId();
 
   setEventListener({ dataKey, onClick });
   const buttonTheme = getButtonTheme(borderType, color);
